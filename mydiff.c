@@ -104,11 +104,10 @@ void chop(char *s) {
 	 
 // read whole soln or student outputs for all tests into s
 void read_soln(soln_t *soln, char *fname) {
-	int i;
 	int inbody= FALSE;
 	FILE *f;
 	char line[MAX_LINE_LEN];		
-	int status; 
+	
 	if ( !(f=fopen(fname,"r")) ) {
 		fprintf(stderr, "Wrong file name %s\n", fname);
 		exit(EXIT_FAILURE);
@@ -127,6 +126,7 @@ void read_soln(soln_t *soln, char *fname) {
 			inbody= TRUE;
 		}
 	}
+	fclose(f);
 }	
 
 /*------------------------- Progamming is fun! ------------------------------*/		
